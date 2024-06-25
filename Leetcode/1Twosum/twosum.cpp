@@ -14,19 +14,19 @@ std::vector<int> findnum(std::vector<int> numlist, int target)
 
         if (numlist[i] + numlist[j] < target)
         {
-            i = i + 1;
+            ++i;
         }
 
         else
         {
-            j = j - 1;
+            --j;
         }
     }
 
     int x = -1;
     int y = -1;
 
-    for (int k = 0; k < nums.size(); k++)
+    for (int k = 0; k < nums.size(); ++k)
     {
         if (numlist[i] == nums[k] && x == -1)
         {

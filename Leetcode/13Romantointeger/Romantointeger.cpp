@@ -26,12 +26,12 @@ public:
                 {
                     value = value + 1;
                 }
-                i = i + 1;
+                ++i;
             }
             else if (s[i] == 'V')
             {
                 value = value + 5;
-                i = i + 1;
+                ++i;
             }
             else if (s[i] == 'X')
             {
@@ -50,12 +50,12 @@ public:
                 {
                     value = value + 10;
                 }
-                i = i + 1;
+                ++i;
             }
             else if (s[i] == 'L')
             {
                 value = value + 50;
-                i = i + 1;
+                ++i;
             }
             else if (s[i] == 'C')
             {
@@ -74,17 +74,17 @@ public:
                 {
                     value = value + 100;
                 }
-                i = i + 1;
+                ++i;
             }
             else if (s[i] == 'D')
             {
                 value = value + 500;
-                i = i + 1;
+                ++i;
             }
             else if (s[i] == 'M')
             {
                 value = value + 1000;
-                i = i + 1;
+                ++i;
             }
         }
         return value;
