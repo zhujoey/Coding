@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Leetcode",
+    "\\Leetcode\\Twosum"
   ],
-  "SelectedNode": "\\first.sln",
+  "SelectedNode": "\\Leetcode\\Twosum\\1twosumlocal.cpp",
   "PreviewInSolutionExplorer": false
 }
