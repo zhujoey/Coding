@@ -3,7 +3,7 @@
 
 class Solution {
 public:
-    int romanToInt(std::string s)
+    int romanToInt(const std::string& s)
     {
         int value = 0;
         int i = 0;
@@ -15,22 +15,22 @@ public:
                 {
                     if (s[i + 1] == 'V' || s[i + 1] == 'X')
                     {
-                        value = value - 1;
+                        --value;
                     }
                     else
                     {
-                        value = value + 1;
+                        ++value;
                     }
                 }
                 else
                 {
-                    value = value + 1;
+                    ++value;
                 }
                 ++i;
             }
             else if (s[i] == 'V')
             {
-                value = value + 5;
+                value += 5;
                 ++i;
             }
             else if (s[i] == 'X')
@@ -39,22 +39,22 @@ public:
                 {
                     if (s[i + 1] == 'L' || s[i + 1] == 'C')
                     {
-                        value = value - 10;
+                        value -= 10;
                     }
                     else
                     {
-                        value = value + 10;
+                        value += 10;
                     }
                 }
                 else
                 {
-                    value = value + 10;
+                    value += 10;
                 }
                 ++i;
             }
             else if (s[i] == 'L')
             {
-                value = value + 50;
+                value += 50;
                 ++i;
             }
             else if (s[i] == 'C')
@@ -63,27 +63,27 @@ public:
                 {
                     if (s[i + 1] == 'D' || s[i + 1] == 'M')
                     {
-                        value = value - 100;
+                        value -= 100;
                     }
                     else
                     {
-                        value = value + 100;
+                        value += 100;
                     }
                 }
                 else
                 {
-                    value = value + 100;
+                    value += 100;
                 }
                 ++i;
             }
             else if (s[i] == 'D')
             {
-                value = value + 500;
+                value += 500;
                 ++i;
             }
             else if (s[i] == 'M')
             {
-                value = value + 1000;
+                value += 1000;
                 ++i;
             }
         }

@@ -2,7 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-std::vector<int> findnum(std::vector<int> numlist, int target)
+std::vector<int> findnum(const std::vector<int>& numlist, int& target)
 {
     std::vector<int> nums = numlist;
     std::sort(numlist.begin(), numlist.end());
@@ -39,12 +39,12 @@ std::vector<int> findnum(std::vector<int> numlist, int target)
         }
         
     }
-    return {x, y};
+    return std::vector<int>{x, y};
 }
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+    std::vector<int> twoSum(std::vector<int>& nums, int target) {
         return findnum(nums, target);
     }
 };
