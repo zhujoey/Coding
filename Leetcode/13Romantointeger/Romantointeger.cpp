@@ -11,16 +11,9 @@ public:
         {
             if (s[i] == 'I')
             {
-                if (i < s.size() - 1)
+                if (i < s.size() - 1 && (s[i + 1] == 'V' || s[i + 1] == 'X'))
                 {
-                    if (s[i + 1] == 'V' || s[i + 1] == 'X')
-                    {
-                        --value;
-                    }
-                    else
-                    {
-                        ++value;
-                    }
+                    --value;
                 }
                 else
                 {
@@ -35,16 +28,9 @@ public:
             }
             else if (s[i] == 'X')
             {
-                if (i < s.size() - 1)
+                if (i < s.size() - 1 && (s[i + 1] == 'L' || s[i + 1] == 'C'))
                 {
-                    if (s[i + 1] == 'L' || s[i + 1] == 'C')
-                    {
-                        value -= 10;
-                    }
-                    else
-                    {
-                        value += 10;
-                    }
+                    value -= 10;
                 }
                 else
                 {
@@ -59,16 +45,9 @@ public:
             }
             else if (s[i] == 'C')
             {
-                if (i < s.size() - 1)
+                if (i < s.size() - 1 && (s[i + 1] == 'D' || s[i + 1] == 'M'))
                 {
-                    if (s[i + 1] == 'D' || s[i + 1] == 'M')
-                    {
-                        value -= 100;
-                    }
-                    else
-                    {
-                        value += 100;
-                    }
+                    value -= 100;
                 }
                 else
                 {

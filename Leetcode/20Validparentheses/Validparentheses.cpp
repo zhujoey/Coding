@@ -4,7 +4,7 @@
 class Solution
 {
 public:
-    bool isValid(string s)
+    bool isValid(std::string s)
     {
         std::vector<char> string = {};
         for (int i = 0; i < s.size(); ++i)
@@ -15,11 +15,7 @@ public:
             }
             else if (s[i] == ')')
             {
-                if (string.empty())
-                {
-                    return false;
-                }
-                else if (string.back() == '(')
+                if (!string.empty() && string.back() == '(')
                 {
                     string.pop_back();
                 }
@@ -30,11 +26,7 @@ public:
             }
             else if (s[i] == ']')
             {
-                if (string.empty())
-                {
-                    return false;
-                }
-                else if (string.back() == '[')
+                if (!string.empty() && string.back() == '[')
                 {
                     string.pop_back();
                 }
@@ -45,11 +37,7 @@ public:
             }
             else if (s[i] == '}')
             {
-                if (string.empty())
-                {
-                    return false;
-                }
-                else if (string.back() == '{')
+                if (!string.empty() && string.back() == '{')
                 {
                     string.pop_back();
                 }
