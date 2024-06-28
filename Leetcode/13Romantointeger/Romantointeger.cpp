@@ -6,8 +6,7 @@ public:
     int romanToInt(const std::string& s)
     {
         int value = 0;
-        int i = 0;
-        while (i < s.size())
+        for (int i = 0; i < s.size(); ++i)
         {
             if (s[i] == 'I')
             {
@@ -19,12 +18,10 @@ public:
                 {
                     ++value;
                 }
-                ++i;
             }
             else if (s[i] == 'V')
             {
                 value += 5;
-                ++i;
             }
             else if (s[i] == 'X')
             {
@@ -36,12 +33,10 @@ public:
                 {
                     value += 10;
                 }
-                ++i;
             }
             else if (s[i] == 'L')
             {
                 value += 50;
-                ++i;
             }
             else if (s[i] == 'C')
             {
@@ -53,17 +48,14 @@ public:
                 {
                     value += 100;
                 }
-                ++i;
             }
             else if (s[i] == 'D')
             {
                 value += 500;
-                ++i;
             }
             else if (s[i] == 'M')
             {
                 value += 1000;
-                ++i;
             }
         }
         return value;
