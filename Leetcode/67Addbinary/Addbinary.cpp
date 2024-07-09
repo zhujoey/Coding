@@ -24,28 +24,7 @@ public:
         {
             if (i < num2.size())
             {
-                if (num1[i] == '0')
-                {
-                    if (num2[i] == '1')
-                    {
-                        ans.push_back('1');
-                    }
-                    else
-                    {
-                        ans.push_back('0');
-                    }
-                }
-                else
-                {
-                    if (num2[i] == '1')
-                    {
-                        ans.push_back('2');
-                    }
-                    else
-                    {
-                        ans.push_back('1');
-                    }
-                }
+                ans.push_back(num1[i] - '0' + num2[i]);
             }
             else
             {
@@ -54,8 +33,8 @@ public:
         }
         for (int i = 0; i < ans.size(); ++i)
         {
-            if (ans[i] == '2')
-            {
+           if (ans[i] >= '2')
+           {
                 if (i < ans.size() - 1)
                 {
                     ++ans[i + 1];
@@ -64,20 +43,9 @@ public:
                 {
                     ans.push_back('1');
                 }
-                ans[i] = '0';
-            }
-            else if (ans[i] == '3')
-            {
-                if (i < ans.size() - 1)
-                {
-                    ++ans[i + 1];
-                }
-                else
-                {
-                    ans.push_back('1');
-                }
-                ans[i] = '1';
-            }
+                ans[i] = ans[i] + '.' - '0';
+           }
+           std::cout << "o";
         }
         return std::string (ans.rbegin(), ans.rend());
     }

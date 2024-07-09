@@ -18,6 +18,7 @@ public:
             }
             else
             {
+                // All digits were 9 if this is run, so when this is reached every digit before is 0, so the first digit is changed to 1 and one more 0 is added.
                 digits[0] = 1;
                 digits.push_back(0);
             }
