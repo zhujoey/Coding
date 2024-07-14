@@ -16,6 +16,7 @@ public:
                 shortest = strs[i].size();
             }
         }
+        // need to prevent overflow in the next loop by finding shortest length first
         for (int j = 0; j < shortest; ++j)
         {
             char compare = strs[0][j];
@@ -28,6 +29,7 @@ public:
             }
             commonprefix.push_back(compare);
         }
+        // compares all of the chars in index j with the first
         return std::string (commonprefix.begin(), commonprefix.end());
     }
 };
