@@ -12,7 +12,7 @@ public:
             if (s[i] != ' ')
             {
                 isspace = false;
-                chars += 1;
+                ++chars;
             }
             else if (s[i] == ' ' && isspace == false)
             {

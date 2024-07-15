@@ -13,7 +13,10 @@ public:
             {
                 string.push_back(s[i]);
             }
-            else if (s[i] == ')' && !string.empty() && string.back() == '(' || s[i] == ']' && !string.empty() && string.back() == '[' || s[i] == '}' && !string.empty() && string.back() == '{')
+            else if (!string.empty() &&
+                     ((s[i] == ')' && string.back() == '(') ||
+                      (s[i] == ']' && string.back() == '[') ||
+                      (s[i] == '}' && string.back() == '{')))
             {
                 string.pop_back();
             }
