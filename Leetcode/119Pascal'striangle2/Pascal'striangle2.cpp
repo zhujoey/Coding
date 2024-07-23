@@ -3,21 +3,20 @@
 class Solution
 {
 public:
-    std::vector<std::vector<int>> generate(int numRows)
+    std::vector<int> getRow(int rowIndex)
     {
-        if (numRows == 1)
+        if (rowIndex == 0)
         {
-            return {{1}};
+            return {1};
         }
-        else if (numRows == 2)
+        else if (rowIndex == 1)
         {
-            return {{1}, {1,1}};
+            return {1,1};
         }
 
         std::vector<int> numbers = {};
         std::vector<int> previous = {1, 1};
-        std::vector<std::vector<int>> answer = {{1}};
-        for (int i = 1; i < numRows; ++i)
+        for (int i = 1; i < rowIndex; ++i)
         {
             numbers.clear();
             numbers.push_back(1);
@@ -28,8 +27,7 @@ public:
 
             numbers.push_back(1);
             previous.swap(numbers);
-            answer.push_back(numbers);
         }
-        return answer;
+        return previous;
     }
 };
