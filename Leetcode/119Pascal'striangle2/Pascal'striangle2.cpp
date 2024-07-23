@@ -3,31 +3,23 @@
 class Solution
 {
 public:
-    std::vector<int> getRow(int rowIndex)
+    int maxProfit(std::vector<int>& prices)
     {
-        if (rowIndex == 0)
+        int answer = 0;
+        int min = prices[0];
+        for (int i = 0; i < prices.size(); ++i)
         {
-            return {1};
-        }
-        else if (rowIndex == 1)
-        {
-            return {1,1};
-        }
-
-        std::vector<int> numbers = {};
-        std::vector<int> previous = {1, 1};
-        for (int i = 1; i < rowIndex; ++i)
-        {
-            numbers.clear();
-            numbers.push_back(1);
-            for (int j = 0; j < previous.size() - 1; ++j)
+            if (prices[i] < min)
             {
-                numbers.push_back(previous[j] + previous[j + 1]);
+                min = prices[i];
             }
 
-            numbers.push_back(1);
-            previous.swap(numbers);
+            if (prices[i] - min > answer)
+            {
+                answer = prices[i] -  min;
+            }
         }
-        return previous;
+    
+        return answer;
     }
 };
