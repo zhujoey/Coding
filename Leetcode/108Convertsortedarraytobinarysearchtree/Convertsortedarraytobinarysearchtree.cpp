@@ -13,7 +13,7 @@ struct TreeNode
 class Solution
 {
 public:
-    TreeNode* temp(std::vector<int>& nums, int start, int end)
+    TreeNode* convert(std::vector<int>& nums, int start, int end)
     {
         if (end <= start - 1)
         {
@@ -24,11 +24,11 @@ public:
             return new TreeNode(nums[0]);
         }
         int center = (start + end) / 2;
-        return new TreeNode(nums[center], temp(nums, start, center - 1), temp(nums, center + 1, end));
+        return new TreeNode(nums[center], convert(nums, start, center - 1), convert(nums, center + 1, end));
     }
 
     TreeNode* sortedArrayToBST(std::vector<int>& nums)
     {
-        return temp(nums, 0, nums.size() - 1);
+        return convert(nums, 0, nums.size() - 1);
     }
 };
