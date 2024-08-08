@@ -2,11 +2,13 @@
 #include <string>
 #include <cmath>
 
-class Solution {
+class Solution
+{
 public:
-    bool isPalindrome(int x) {
+    bool isPalindrome(int x)
+    {
         std::string num = std::to_string(x);
-        for (int i = 0; i< num.size() / 2; ++i)
+        for (int i = 0; i < num.size() / 2; ++i)
         {
             if (num[i] != num[num.size() - 1 - i])
             {
