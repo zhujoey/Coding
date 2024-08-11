@@ -1,18 +1,20 @@
-#include <iostream>
 #include <vector>
 
-class Solution {
+class Solution
+{
 public:
-    int removeElement(std::vector<int>& nums, int val) {
-        std::vector<int> removed = {};
+    int removeElement(std::vector<int>& nums, int val)
+    {
+        std::vector<int> stay = {};
         for (int i = 0; i < nums.size(); ++i)
         {
             if (nums[i] != val)
             {
-                removed.push_back(nums[i]);
+                stay.push_back(nums[i]);
             }
         }
-        nums.swap(removed);
+
+        nums.swap(stay);
         return nums.size();
     }
 };

@@ -1,11 +1,11 @@
-#include <iostream>
 #include <string>
 #include <vector>
 
 class Solution
 {
 public:
-    std::string longestCommonPrefix(const std::vector<std::string>& strs) {
+    std::string longestCommonPrefix(const std::vector<std::string>& strs)
+    {
         std::vector<char> commonprefix = {};
         int shortest = strs[0].size();
         for (int i = 1; i < strs.size(); ++i)
