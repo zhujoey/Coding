@@ -1,5 +1,4 @@
 #include <vector>
-#include <iostream>
 
 class Solution
 {
@@ -19,6 +18,7 @@ public:
         int i = 0;
         int j = 0;
         std::vector<int> result = {};
+
         while (i < m && j < n)
         {
             if (nums1[i] <= nums2[j])
@@ -32,6 +32,7 @@ public:
                 ++j;
             }
         }
+        //merge lists
 
         if (i >= m)
         {
@@ -47,6 +48,8 @@ public:
                 result.push_back(nums1[i]);
             }
         }
+        //add the rest of the lists
+
         nums1.swap(result);
     }
 };

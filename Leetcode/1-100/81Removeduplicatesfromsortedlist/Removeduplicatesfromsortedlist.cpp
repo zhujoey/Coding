@@ -18,10 +18,12 @@ public:
         {
             return head;
         }
+
         int lastnum = head->val;
         ListNode *result = head;
         ListNode *tail = head;
         head = head->next;
+
         while (head != nullptr)
         {
             if (head->val != lastnum)
@@ -32,6 +34,7 @@ public:
             }
             head = head->next;
         }
+        
         tail->next = nullptr;
         return result;
     }

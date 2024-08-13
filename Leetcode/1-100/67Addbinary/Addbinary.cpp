@@ -1,4 +1,3 @@
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -19,7 +18,9 @@ public:
             num2.assign(a.rbegin(), a.rend());
             num1.assign(b.rbegin(), b.rend());
         }
+
         std::vector<char> ans = {};
+
         for (int i = 0; i < num1.size(); ++i)
         {
             if (i < num2.size())
@@ -31,6 +32,7 @@ public:
                 ans.push_back(num1[i]);
             }
         }
+
         for (int i = 0; i < ans.size(); ++i)
         {
            if (ans[i] >= '2')
@@ -45,8 +47,8 @@ public:
                 }
                 ans[i] = ans[i] + '.' - '0';
            }
-           std::cout << "o";
         }
+        
         return std::string (ans.rbegin(), ans.rend());
     }
 };
