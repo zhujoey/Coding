@@ -32,9 +32,7 @@ public:
 
         if (l2len > l1len)
         {
-            ListNode *temp = l2;
-            l2 = l1;
-            l1 = temp;
+            l1.swap(l2);
         }
         
         ListNode *head = l1;
