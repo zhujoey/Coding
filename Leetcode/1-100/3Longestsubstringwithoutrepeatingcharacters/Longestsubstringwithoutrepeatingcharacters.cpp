@@ -26,7 +26,6 @@ public:
                     maxlen = norepeat.size();
                 }
             }
-
             else
             {
                 ++lower;

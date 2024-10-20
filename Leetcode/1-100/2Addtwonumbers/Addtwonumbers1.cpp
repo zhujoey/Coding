@@ -17,18 +17,18 @@ public:
         ListNode *templ2 = l2;
         int l1len = 0;
         int l2len = 0;
-
+//!
         while (templ1 != nullptr)
         {
             ++l1len;
             templ1 = templ1->next;
         }
-
         while (templ2 != nullptr)
         {
             ++l2len;
             templ2 = templ2->next;
         }
+//!
 
         if (l2len > l1len)
         {
