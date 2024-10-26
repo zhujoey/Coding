@@ -1,3 +1,5 @@
+//48 and 57 is the ASCII range for int
+
 #include <string>
 
 class Solution
@@ -8,17 +10,6 @@ public:
         if (s.empty())
         {
             return 0;
-        }
-        else if (s.size() == 1)
-        {
-            if (s[0] >= 48 && s[0] <= 57)
-            {
-                return s[0] - 48;
-            }
-            else
-            {
-                return 0;
-            }
         }
 
         int ans = 0;
@@ -49,21 +40,23 @@ public:
         {
             if (s[i] >= 48 && s[i] <= 57)
             {
-                if (ans > (pow(2, 31) + 47 - s[i]) / 10)
+                if (ans > (2147483647 - s[i] + 48) / 10)
                 {
+                    //+ 48 because negatives have a bigger range
                     if (multiplier == 1)
                     {
-                        return pow(2, 31) - 1;
+                        return 2147483647;
+                        //max limit
                     }
                     else
                     {
-                        return 0 - pow(2, 31);
+                        return -2147483648;
+                        //max limit
                     }
                 }
 
                 ans *= 10;
                 ans += s[i] - 48;
-                cout << ans << endl;
             }
             else
             {

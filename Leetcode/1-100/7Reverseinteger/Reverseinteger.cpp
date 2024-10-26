@@ -1,5 +1,3 @@
-#include <vector>
-
 class Solution
 {
 public:
@@ -17,14 +15,14 @@ public:
         {
             if (num[i] >= 0)
             {
-                if (reversed > (pow(2, 31) - 1 - num[i]) / 10)
+                if (reversed > (2147483647 - num[i]) / 10)
                 {
                     return 0;
                 }
             }
             else
             {
-                if (reversed < (0 - pow(2, 31) - num[i]) / 10)
+                if (reversed < (-2147483648 - num[i]) / 10)
                 {
                     return 0;
                 }
