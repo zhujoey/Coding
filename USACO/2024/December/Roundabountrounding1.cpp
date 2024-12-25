@@ -1,48 +1,59 @@
 #include <iostream>
-#include <vector>
+
+int amount(int length)
+{
+    int lower = 0;
+    int higher = 4;
+    for (int i = 1; i < length - 1; ++i)
+    {
+        lower += 4;
+        lower *= 10;
+        higher *= 10;
+        higher += 9;
+    }
+
+    lower += 5;
+
+    return higher - lower + 1;
+}
 
 int count(const int &num)
 {
-    int result = 0;
-    int current = 0;
-    std::vector<int> digits = {};
-
-    if (num < 2)
+    int temp = num;
+    int answer = 0;
+    int length = 1;
+    while (temp > 10)
     {
-        return 0;
+        temp /= 10;
+        ++length;
+        answer += amount(length);
     }
 
-    for (int i = 2; i <= num; ++i)
+    ++length;
+
+    int lower = 0;
+    int higher = 4;
+
+    for (int i = 1; i < length - 1; ++i)
     {
-        digits = {};
-        
-        current = i;
-
-        while (current > 0)
-        {
-            digits.push_back(current % 10);
-            current /= 10;
-        }
-
-        for (int j = digits.size() - 1; j >= 0; --j)
-        {
-            if (j == digits.size() - 1 && digits[j] != 4)
-            {
-                break;
-            }
-            else if (digits[j] < 4)
-            {
-                break;
-            }
-            else if (digits[j] > 4)
-            {
-                ++result;
-                break;
-            }
-        }
+        lower += 4;
+        lower *= 10;
+        higher *= 10;
+        higher += 9;
     }
 
-    return result;
+    lower += 5;
+
+    if (num >= higher)
+    {
+        answer += higher - lower + 1;
+    }
+    else if (num < higher && num >= lower)
+    {
+        answer += num - lower + 1;
+    }
+    
+    return answer;
 }
 
 int main()
