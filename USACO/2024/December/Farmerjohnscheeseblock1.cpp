@@ -11,6 +11,8 @@ int check(const int &x, const int &y, const int &z, const int &size, std::vector
         return 0;
     }
 
+    //can only be 0 when n < size
+
     for (int i = 0; i < size; ++i)
     {
         if (cube[x][y][i])
@@ -45,6 +47,8 @@ int check(const int &x, const int &y, const int &z, const int &size, std::vector
         }
     }
 
+    //O(3 * size)
+
     std::cout << ans << std::endl;
     return ans;
 }
@@ -60,6 +64,8 @@ int main()
         std::cin >> x >> y >> z;
         count = check(x, y, z, size, cube, i + 1, count);
     }
-    
+
+    //O(n)
+
     return 0;
 };
