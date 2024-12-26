@@ -12,6 +12,8 @@ int amount(int length)
         higher += 9;
     }
 
+    //O(length)
+
     lower += 5;
 
     return higher - lower + 1;
@@ -29,6 +31,9 @@ int count(const int &num)
         answer += amount(length);
     }
 
+    //O(logn)
+    //caculates all valid numbers shorter than num
+
     ++length;
 
     int lower = 0;
@@ -42,6 +47,8 @@ int count(const int &num)
         higher += 9;
     }
 
+    //O(length)
+
     lower += 5;
 
     if (num >= higher)
@@ -52,6 +59,8 @@ int count(const int &num)
     {
         answer += num - lower + 1;
     }
+
+    //caculates valid numbers having the same length as num because not all of them can work
     
     return answer;
 }
@@ -67,6 +76,8 @@ int main()
         std::cin >> currentinput;
         std::cout << count(currentinput) << std::endl;;
     }
+
+    //O(n)
 
     return 0;
 };
