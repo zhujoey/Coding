@@ -1,0 +1,8 @@
+1. Every line of code takes time
+2. Be more specific in comments
+3. Write complexity before function declaration
+4. Add space after comments
+5. Every new item needs to be deleted
+6. Properly indent
+7. Properly name functions, variables, classes
+8. Try not to add items to the front of a vector or string because it is very slow
