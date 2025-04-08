@@ -1,15 +1,18 @@
 #include <iostream>
 #include <algorithm>
 
-long long n, m, k, a[100001];
+int n;
+long m;
+int k;
+int a[100001];
 
 bool check(int x)
 {
-    long long s = 0;
+    long s = 0;
 
-    for (int i = 1; i <= n; i++)
+    for (int i = 1; i <= n - 1; i++)
     {
-        if(a[i] < x)
+        if (a[i] < x)
         {
             if(x - a[i] > m)
             {
@@ -18,12 +21,12 @@ bool check(int x)
             s += x - a[i];
         }
 
-        if(s > m * k)
+        if (s > m * k)
         {
             return false;
         }
 
-        if(i == x)
+        if (i == x)
         {
             return true;
         }
