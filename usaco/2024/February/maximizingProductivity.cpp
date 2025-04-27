@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-int n, q, diffs[1000001], t, v, s;
+int n, q, diffs[1000000], t, v, s;
 
 int main()
 {
