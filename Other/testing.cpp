@@ -1,66 +1,39 @@
 #include <iostream>
+#include <string>
+#include <deque>
+#include <unordered_set>
 #include <algorithm>
-
-long long n, m, k, a[100001];
-
-bool check(int x)
-{
-    long long s = 0;
-
-    for (int i = 1; i <= n; i++)
-    {
-        if(a[i] < x)
-        {
-            if(x - a[i] > m)
-            {
-                return false;
-            }
-            s += x - a[i];
-        }
-
-        if(s > m * k)
-        {
-            return false;
-        }
-
-        if(i == x)
-        {
-            return true;
-        }
-    }
-}
 
 int main()
 {
-    std::cin >> n >> m >> k;
-
-    for(int i = 1; i <= n; i++)
+    int n;
+    std::string types = "";
+    std::unordered_set<char> needs;
+    std::deque<char> window;
+    std::cin >> n >> types;
+    for(int i = 0; i < n; ++i)
     {
-        std::cin >> a[i];
+        needs.insert(types[i]);
     }
-
-    std::sort(a+1, a+1+n, std::greater<int>());
-
-    int l = 0, r = n, ans = -1;
-
-    while (l + 1 < r)
+    unsigned long long ans = n, i = 0;
+    while (i <= n)
     {
-        int mid = (l + r) / 2;
-
-        if (check(mid))
+        std::unordered_set<char> has(window.begin(), window.end());
+        if (needs == has)
         {
-            ans = mid;
-            l = mid;
+            if (window.size() < ans)
+            {
+                ans = window.size();
+            }
+            window.pop_front();
         }
-
         else
         {
-            r = mid;
+            window.push_back(types[i]);
+            ++i;
         }
     }
-
-    std::cout << ans << std::endl;
-
+    
+    std::cout << ans;
     return 0;
-
 }
