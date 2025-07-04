@@ -30,7 +30,7 @@ int main()
             unique_count++;
         }
         window[current]++;
- 
+
         while (unique_count == type)
         {
             ans = std::min(ans, right - left + 1);
