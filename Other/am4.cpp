@@ -1,34 +1,53 @@
 #include <iostream>
-#include <string>
 #include <vector>
 #include <tuple>
 #include <cmath>
 
 int main()
 {
-    std::string dest;
-    double dist, a, b, c, t, x, y, z, daily;
-    bool stop = false;
-    //speed, pax, range, type
-    const std::vector<std::tuple<int, int, int, std::string>> inf = {{930, 78, 2200, "arj"}, {894, 90, 2036, "dc-9-10"}, {1096, 230, 5500, "mc-21-400"}, {813, 250, 20000, "787-8"}};
-    std::cout << "destination, distance, economy, business, first\n";
-    std::cin >> t;
-    while (t--)
+    double dist, a, b, c, x;
+    // speed, pax, range, type, fuel
+    const std::vector<std::tuple<int, int, int, std::string, int>> inf = {
+        {877, 78, 2200, "arj21-700", 9},
+        {926, 131, 3056, "727-100", 13},
+        {903, 90, 2036, "dc-9-10", 14},
+        {1096, 230, 5500, "mc-21-400", 19},
+        {813, 250, 14500, "787-8", 16},
+        {932, 300, 18000, "a350-900ulr", 14}
+    };
+
+    std::cin >> dist >> a >> b >> c;
+
+    for (const auto& aircraft : inf)
     {
-        std::cin >> dest >> dist >> a >> b >> c;
-        stop = false;
-        for (int i = 0; i < inf.size(); ++i)
+        int speed = std::get<0>(aircraft);
+        int pax = std::get<1>(aircraft);
+        int range = std::get<2>(aircraft);
+        std::string type = std::get<3>(aircraft);
+        int fuel = std::get<4>(aircraft);
+
+        if (range < dist)
         {
-            if (std::get<2>(inf[i]) < dist)
-            {
-                std::cout << std::get<3>(inf[i]) << " cannot fly to " << dest << "\n";
-                continue;
-            }
-            x = std::get<1>(inf[i]) / (1 + 2 * b / a + 3 * c / a);
-            std::cout << std::get<3>(inf[i]) << " will fly ~" << std::round(24 * std::get<0>(inf[i]) * x / dist) << " econ to " << dest << " economy: ~" << std::round(x) << " business: ~" << std::round(b * x / a) << " first: ~" << std::round(c * x / a) << "\n";
+            std::cout << type << " cannot complete the flight\n";
+            continue;
+        }
+
+        x = pax / (1 + 2 * b / a + 3 * c / a);
+        double total_econ = std::round(24 * speed * x / dist);
+        if (total_econ > a - x)
+        {
+            std::cout << type << " will exceed passenger limits\n";
+        }
+        else
+        {
+            std::cout << type << " will fly ~" << total_econ
+                      << " economy passengers and consume "
+                      << 24 * fuel * speed << " lbs of fuel per day | economy: ~"
+                      << std::round(x) << " business: ~"
+                      << std::round(b * x / a) << " first: ~"
+                      << std::round(c * x / a) << "\n";
         }
     }
-    
 
     return 0;
 }
