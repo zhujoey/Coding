@@ -1,4 +1,4 @@
-#include <iostream>
+/* #include <iostream>
 #include <algorithm>
 
 int n;
@@ -63,6 +63,51 @@ int main()
     }
 
     std::cout << ans << std::endl;
+
+    return 0;
+}
+    */
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main()
+{
+    int n = 0, l = 0, h = 0;
+
+    std::cin >> n >> l;
+
+    std::vector<int> papers(n, 0);
+    for (int j = 0; j < n; j++)
+    {
+        std::cin >> papers[j];
+    }
+
+    std::sort(papers.begin(), papers.end(), std::greater<int>());
+
+    h = papers.size();
+    while (h > 0 && papers[h - 1] < h)
+    {
+        h--;
+    }
+
+    if (h != n)
+    {
+        for (int j = h; j >= 0 && j > h - l; j--)
+        {
+            papers[j]++;
+        }
+    }
+
+    std::sort(papers.begin(), papers.end(), std::greater<int>());
+
+    h = papers.size();
+    while (h > 0 && papers[h - 1] < h)
+    {
+        h--;
+    }
+
+    std::cout << h << "\n";
 
     return 0;
 }
