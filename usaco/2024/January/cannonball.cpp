@@ -1,30 +1,30 @@
 #include <iostream>
-#include <utility>
 #include <vector>
+#include <utility>
 
 int main()
 {
-    long long n, s, dir = 1, power = 1, ans = 0;
+    long long n, s, dir = 1, k = 1, ans = 0;
     std::cin >> n >> s;
-    std::vector<std::pair<int, int>> pad(n + 1);
+    std::vector<std::pair<int, int>> spot(n + 1);
     std::vector<bool> broke(n + 1);
     for (int i = 1; i <= n; ++i)
     {
-        std::cin >> pad[i].first >> pad[i].second;
+        std::cin >> spot[i].first >> spot[i].second;
     }
     for (int i = 0; i < 5000000 && s >= 1 && s <= n; ++i)
     {
-        if (pad[s].first == 1 && power >= pad[s].second && !broke[s])
+        if (spot[s].first == 1 && k >= spot[s].second && !broke[s])
         {
             broke[s] = true;
             ++ans;
         }
-        if (pad[s].first == 0)
+        if (spot[s].first == 0)
         {
             dir *= -1;
-            power += pad[s].second;
+            k += spot[s].second;
         }
-        s += dir * power;
+        s += dir * k;
     }
     std::cout << ans;
     return 0;

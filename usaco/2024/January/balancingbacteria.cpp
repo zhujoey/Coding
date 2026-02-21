@@ -3,8 +3,7 @@
 
 int main()
 {
-    long long a, goal = 0, prev = 0;
-    int n, ans = 0;
+    long long a, goal = 0, prev = 0, n, ans = 0;
     std::cin >> n;
     for (int i = 0; i < n; ++i)
     {
